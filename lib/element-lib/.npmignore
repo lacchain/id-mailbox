@@ -1,0 +1,7 @@
+.env
+__tests__/**/*
+__fixtures__
+coverage
+test
+*.spec.js
+*.snap
