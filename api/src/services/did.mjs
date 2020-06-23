@@ -57,4 +57,19 @@ export default class DIDService {
 		return {did: ethrDid.did, key: keyPair};
 	}
 
+	async setAttribute(key, value, {address, privateKey}) {
+		const keyPair = EthrDID.createKeyPair()
+		const ethrDid = new EthrDID( {
+			address,
+			privateKey,
+			provider: this.web3.currentProvider,
+			registry: "0xd6A7c915066E17ba18024c799258C8A286fFBc00",
+			web3: this.web3
+		} );
+		//const encryptionKey = generateKeyPair();
+		// await ethrDid.setAttribute( 'did/pub/X25519/enc/base64', new Buffer( encryptionKey.publicKey ).toString( 'base64' ) );
+		await ethrDid.setAttribute( key, value );
+		return {did: ethrDid.did, key: keyPair};
+	}
+
 }

@@ -6,4 +6,3 @@ didService.create().then( ( { did, key } ) => {
 	//console.log( 'Encryption Key: ', encryptionKey.privateKey );
 	//const array = new Uint8Array(Buffer.from(hex, 'hex'));
 } );
-

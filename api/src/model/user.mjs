@@ -1,4 +1,4 @@
 export default {
 	did: String,
-	vcs: [String]
+	vcs: [Object]
 }
