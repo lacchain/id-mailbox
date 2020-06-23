@@ -1,0 +1,14 @@
+POST http://localhost:8080/did
+
+###
+
+GET http://localhost:8080/did/did:ethr:lacchain:0xa6eaeb0975f75f601b2554c06e191ab5c3391bf2
+
+###
+
+
+
+GET http://localhost:8080/did/did:web:did.or13.io
+
+###
+

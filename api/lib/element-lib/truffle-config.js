@@ -21,7 +21,6 @@
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 const path = require('path');
 // eslint-disable-next-line
-require('dotenv').config({ path: path.resolve(__dirname, '../../.env') });
 
 module.exports = {
   /**
@@ -36,7 +35,7 @@ module.exports = {
 
   networks: {
     lacchain: {
-      provider: () => new HDWalletProvider('8f2a55949038a9610f50fb23b5883af3b4ecb3c3bb792cbcefbd1542c692be63', 'http://34.69.22.82:4545'),
+      provider: () => new HDWalletProvider('8f2a55949038a9610f50fb23b5883af3b4ecb3c3bb792cbcefbd1542c692be63', 'http://35.184.61.29:4545'),
       network_id: 648530,
       gas: 0,
       gasPrice: 0,

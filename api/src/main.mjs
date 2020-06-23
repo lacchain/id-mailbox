@@ -5,7 +5,7 @@ const test = async() => {
 	const didService = new DIDService();
 	const vcService = new VCService( didService );
 
-	/*const issuer = await didService.createDID();
+	const issuer = await didService.createDID();
 	const subject = await didService.createDID();
 
 	console.log( 'Issuer: ' + issuer.did );
@@ -19,7 +19,7 @@ const test = async() => {
 	console.log('Credential: ' + credential.id);
 	console.log( JSON.stringify( credential, null, 2 ) );
 
-	console.log( await vcService.verify( credential ) );*/
+	console.log( await vcService.verify( credential ) );
 
 	console.log( await vcService.verify( JSON.parse( '{\n' +
 		'  "@context": [\n' +

@@ -1,0 +1,70 @@
+# Emitir credencial
+
+Usuario 1:
+==========
+
+var claim = {
+    address subject; //DID
+}
+var signature = eth_signTypedData(claim)
+
+caServer.post(claim, signature)
+
+caServer:
+=========
+
+post(/, () => {
+    var sender = ecrecover(request.claim, signature)
+    require(ethereumDIDRegistryContract.identityOwner(request.claim.subject) == sender);
+
+    // valida cualquier otra cosa que venga en el claim
+
+    knownClaimsContract.vouch(request.claim.subject)
+
+    var userEndpoint = ethereumDIDRegistryContract.getAttribute(request.claim.subject, 'VCEndpoint');
+
+    var signature = eth_signedTypedData(claim)
+
+    //armar la VC que contiene la signature
+
+    userEndpoint.post(signature)
+})
+
+knownClaimsContract:
+====================
+
+function vouch(address subject) {
+    claim[subject][msg.sender] = block.number;
+}
+
+# Probar credencial
+
+Usuario 1:
+==========
+var caSignature // ya la tiene
+var claim = {
+    address subject;
+}
+var signature = eth_signTypedData(claim)
+
+verificador.post(claim, signature, caSignature)
+
+Verificador
+===========
+post(/, () => {
+    knownClaimsContract.verify(claim, signature, caSignature)
+})
+
+knownClaimsContract:
+====================
+function verify(claim, address signature, address caSignature) {
+    var sender = ecrecover(EIP712hashStruct(claim), signature)
+    require(ethereumDIDRegistryContract.dididentityOwner(claim.subject) == sender);
+
+    var caAddress = ecrecover(EIP712hashStruct(claim), caSignature)
+
+    if(claim[claim.subject][caAddress] =< block.number)
+        revert; // si es válida no quiero que quede la credencial guardada en la blockchain
+    else
+        return;
+}

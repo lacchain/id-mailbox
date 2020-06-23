@@ -41,7 +41,7 @@ export default class DIDService {
 		const transaction = await this.sidetree.batchScheduler.writeNow( payload );
 		const suffix = this.sidetree.func.getDidUniqueSuffix( payload );
 		const did = `did:lacchain:${suffix}`;
-
+		console.log( 'Hash:' + transaction.hash );
 		return {
 			wallet,
 			transaction,

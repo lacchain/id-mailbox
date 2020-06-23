@@ -1,0 +1,17 @@
+{
+  "name": "eip1812-poc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx -n=\"-r esm\" truffle test"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "elliptic": "^6.5.2",
+    "esm": "^3.2.25",
+    "eth-typed-data": "0.1.0-beta.0",
+    "ethr-did-registry": "0.0.3",
+    "truffle": "^5.1.27"
+  }
+}
