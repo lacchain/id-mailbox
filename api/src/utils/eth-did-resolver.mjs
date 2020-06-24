@@ -133,6 +133,15 @@ function wrapDidDocument (did, owner, history) {
 								serviceEndpoint: Buffer.from(
 									event.value.slice(2),
 									'hex'
+								).toString('base58')
+							}
+							break
+						case 'auth':
+							auth[key] = {
+								type: algo,
+								serviceEndpoint: Buffer.from(
+									event.value.slice(2),
+									'hex'
 								).toString()
 							}
 							break
