@@ -1,3 +1,9 @@
+GET http://localhost:8080/vc/did:ethr:lacchain:0x8a01111221828ceda89b7610f7e5d4166f3eb7cf
+Accept: application/json, text/plain, */*
+signature: 0x2232b2d42a50f6ef7ae94f4cb209077ba0516c80fd211a0670fcfd58230147c874285f0d84eec8271aa7bfe0a58217ba0b555529f99747c99608a6eff07dedec1d
+
+###
+
 POST http://localhost:8080/did
 
 ###
@@ -11,4 +17,17 @@ GET http://localhost:8080/did/did:ethr:lacchain:0xa6eaeb0975f75f601b2554c06e191a
 GET http://localhost:8080/did/did:web:did.or13.io
 
 ###
+
+
+GET http://34.68.56.94:8080/vc/did:ethr:lacchain:0x8a01111221828ceda89b7610f7e5d4166f3eb7cf
+
+###
+
+###
+
+
+GET http://localhost:8080/auth/did:ethr:lacchain:0x8a01111221828ceda89b7610f7e5d4166f3eb7cf
+
+###
+
 

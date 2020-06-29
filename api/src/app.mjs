@@ -2,6 +2,7 @@ import express from 'express';
 import http from 'http';
 import cors from 'cors';
 import APIRouter from "./routes/api";
+import { sign, verify } from "./utils/sign.mjs"
 
 const app = express();
 const apiRouter = new APIRouter();
