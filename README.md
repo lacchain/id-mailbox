@@ -1,18 +1,18 @@
 # 1. Creating DID
 
 The DID method used in LACChain ID is "ethr", this method storage the public keys
-and attributes of DID into a Smart Contract which is called a DIDRegitry.
+and attributes of DID into a Smart Contract which is called a DIDRegistry.
 In the following url is described the structure and steps to generate a new DID.
 
 https://github.com/uport-project/ethr-did-registry
 
-The LACChain DID Registry was deployed in the following addresses.
+The LACChain DID Registry has been deployed in the following addresses.
 
-| Network                             | Address                                                |
-| ----------------------------------- | ------------------------------------------------------ |
-| MainNet (id: 1)                     |      Pending to deploy...                              |
-| David19 (id: 3)                     |      Pending to deploy...                              |
-| TestNet (id: 4)                     |      0xd6A7c915066E17ba18024c799258C8A286fFBc00        |
+| Network                                  | Address                                                |
+| -----------------------------------------| ------------------------------------------------------ |
+| MainNet (id: 648529)                     |      Pending to deploy...                              |
+| David19 (id: 648530)                     |      Pending to deploy...                              |
+| TestNet (id: 648539)                     |      0xd6A7c915066E17ba18024c799258C8A286fFBc00        |
 
 # 2. Adding Encryption Public Key
  
@@ -26,13 +26,11 @@ Example:
 DIDRegistry.setAttribute( 'did/pub/X25519/enc/base64', encryptionPublicKeyBase64 );
 ```  
 
-The algorithm proposed to do that is the [NACL](link), which is an asymmetric key algorithm. 
+The algorithm proposed to do that is the [NACL](http://nacl.cr.yp.to), which is an asymmetric key algorithm. 
 
 # 3. Resolving a DID
 
-The format of a DID is 
-
-In order to reconstruct and resolve a DID is the following URL:
+In order to reconstruct and resolve a DID use the following URL:
 
 http://34.68.56.94:8080/did/{did}
 
@@ -70,15 +68,19 @@ Response:
 
 Currently, LACChain ID can resolve the following methods and networks:
 
+| Method                         | Network                                  |
+| -------------------------------| -----------------------------------------|
+| ethr                           |     MainNet                              |
+| ethr                           |     David19                              |
+| ethr                           |     TestNet                              |
+| web                            |      *                                   |
 
+In the future we are going to support more DID methods and their corresponding networks.
  
- # 4. Sending a Verifiable Credential
- The api method to send a verifiable credential is the following 
- 
- ### Authentication
+# 4. Authentication
  The authentication process consist in requesting a string challenge in order to sign further petitions:
 
-#### Request a challenge.
+### Request a challenge.
  In this step, the server will send a random string that the client must use 
  to sign with their DID and send it in headers section.
  
@@ -92,7 +94,7 @@ Currently, LACChain ID can resolve the following methods and networks:
 }
  ```
 
- ### Sending
+# 5. Sending VC
  Before sending a new VC, it is necessary to encrypt with the private key generated for that purpose
  in the DID method. The encrypted VC must be encoded into an array of bytes. 
 To send a new VC, is necessary to sign the keccak-256 hash challenge and attach it in the signature header.
@@ -125,7 +127,7 @@ Response Body:
 }
  ```
 
-# 5. Gathering Verifiable Credentials
+# 6. Gathering Verifiable Credentials
 
  To get the list of VC associated with some DID, is necessary to sign the keccak-256 hash challenge and attach it in the signature header.
  
