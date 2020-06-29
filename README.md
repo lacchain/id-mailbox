@@ -76,9 +76,11 @@ Currently, LACChain ID can resolve the following methods and networks:
  The api method to send a verifiable credential is the following 
  
  ### Authentication
- The authentication process consist in two steps:
- 1. **Request a challenge**. In this step, the server will send a random string that the client must have 
- to sign with their private DID authentication key.
+ The authentication process consist in requesting a string challenge in order to sign further petitions:
+
+#### Request a challenge.
+ In this step, the server will send a random string that the client must use 
+ to sign with their DID and send it in headers section.
  
  URL Path: /vc/auth/{did}
  HTTP Method: GET
@@ -89,38 +91,18 @@ Currently, LACChain ID can resolve the following methods and networks:
     "challenge": "zW7dPhe2TiSTi25i"
 }
  ```
-2. **Send Challenge**. In this step, the client needs to send the signature of the challenge, 
-among with the authentication method used to sign. 
-
-URL Path: /vc/auth/{did}
-HTTP Method: PUT
-
- Request Body:
- ```
-{
-    "signature": "SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
-    "publicKey": "63FaC9201494f0bd17B9892B9fae4d52fe3BD377"
-}
- ```
-
-Response:
-```
-{
-    "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkaWQiOiJkaWQ6ZXRocjoweGI5YzU3MTQwODk0NzhhMzI3ZjA5MTk3OTg3ZjE2ZjllNWQ5MzZlOGEiLCJpYXQiOjE1MTYyMzkwMjJ9.PPKdqAoOrLobKmovsza_bnIu0AFc0BLu8qupWmn4W5o"
-}
-```
 
  ### Sending
  Before sending a new VC, it is necessary to encrypt with the private key generated for that purpose
  in the DID method. The encrypted VC must be encoded into an array of bytes. 
-To send a new VC, it is necessary to have an authentication token (jwt).
+To send a new VC, is necessary to sign the keccak-256 hash challenge and attach it in the signature header.
 
 URL Path: /vc/auth/{did}
 HTTP Method: POST
 
 Request Headers:
  ```
-Authorization: {jwt token}
+signature: sign(keccak256(challenge))
  ```
 
 Request Body:
@@ -145,14 +127,14 @@ Response Body:
 
 # 5. Gathering Verifiable Credentials
 
- To get the list of VC associated with some DID, it is necessary to have an authentication token (jwt).
+ To get the list of VC associated with some DID, is necessary to sign the keccak-256 hash challenge and attach it in the signature header.
  
 URL Path: /vc/{did}
 HTTP Method: GET
 
 Request Headers:
  ```
-Authorization: {jwt token}
+signature: sign(keccak256(challenge))
  ```
 
 Response Body:
