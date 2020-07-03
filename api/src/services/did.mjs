@@ -51,8 +51,6 @@ export default class DIDService {
 			registry: "0xd6A7c915066E17ba18024c799258C8A286fFBc00",
 			web3: this.web3
 		} );
-		//const encryptionKey = generateKeyPair();
-		// await ethrDid.setAttribute( 'did/pub/X25519/enc/base64', new Buffer( encryptionKey.publicKey ).toString( 'base64' ) );
 		await ethrDid.setAttribute( 'did/pub/X25519/enc/base64', new Buffer( keyPair.publicKey ).toString( 'base64' ) );
 		return {did: ethrDid.did, key: keyPair};
 	}

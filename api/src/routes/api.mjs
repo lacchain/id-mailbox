@@ -44,7 +44,7 @@ export default class APIRouter extends Router {
 		} );
 
 		this.post( '/vc', async req => {
-			const { from, to, data } = req.body;
+			const { from, to, vc } = req.body;
 
 			const { signature } = req.headers;
 			const challenge = await get(from.toLowerCase());
