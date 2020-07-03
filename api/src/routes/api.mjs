@@ -53,7 +53,7 @@ export default class APIRouter extends Router {
 				throw new Error( "Invalid signature" );
 			}
 
-			await dao.addVC( to, data );
+			await dao.addVC( to, vc );
 			return true;
 		} );
 	}
