@@ -84,7 +84,8 @@ In the future we are going to support more DID methods and their corresponding n
  In this step, the server will send a random string that the client must use 
  to sign with their DID and send it in headers section.
  
- URL Path: /vc/auth/{did}
+ URL Path: /auth/{did}
+ 
  HTTP Method: GET
  
  Response:
@@ -99,7 +100,8 @@ In the future we are going to support more DID methods and their corresponding n
  in the DID method. The encrypted VC must be encoded into an array of bytes. 
 To send a new VC, is necessary to sign the keccak-256 hash challenge and attach it in the signature header.
 
-URL Path: /vc/auth/{did}
+URL Path: /vc
+
 HTTP Method: POST
 
 Request Headers:
@@ -110,7 +112,8 @@ signature: sign(keccak256(challenge))
 Request Body:
  ```
 {
-    "subject": "did:ethr:lacchain:0x01cd0acdfb36140d0dc6a4d917693ae641821891",
+    "from": "did:ethr:lacchain:0x01cd0acdfb36140d0dc6a4d917693ae641821891"
+    "to": "did:ethr:lacchain:0x01cd0acdfb36140d0dc6a4d917693ae641821892",
     "vc": {
         "type": "Buffer", // always Buffer
         "value": [byte]
@@ -132,6 +135,8 @@ Response Body:
  To get the list of VC associated with some DID, is necessary to sign the keccak-256 hash challenge and attach it in the signature header.
  
 URL Path: /vc/{did}
+
+
 HTTP Method: GET
 
 Request Headers:
