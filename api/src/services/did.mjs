@@ -4,7 +4,6 @@ import ethr from 'ethr-did-resolver';
 import web from 'web-did-resolver';
 import EthrDID from '../utils/ethr-did';
 import ethers from "ethers";
-import moment from "moment";
 
 export default class DIDService {
 

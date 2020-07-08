@@ -4,7 +4,6 @@ import MongooseDAO from '../model/dao';
 import randomstring from 'randomstring';
 import { verify } from "../utils/sign";
 import { promisify } from "util";
-import ethers from "ethers";
 import redis from "redis";
 
 export default class APIRouter extends Router {
