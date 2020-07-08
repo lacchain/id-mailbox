@@ -4,6 +4,7 @@ import MongooseDAO from '../model/dao';
 import randomstring from 'randomstring';
 import { verify } from "../utils/sign";
 import { promisify } from "util";
+import ethers from "ethers";
 import redis from "redis";
 
 export default class APIRouter extends Router {
@@ -21,6 +22,10 @@ export default class APIRouter extends Router {
 
 		this.get( '/did/:did', req => {
 			return didService.resolve( req.params.did )
+		} );
+
+		this.get( '/did/:did/status', req => {
+			return didService.validate( req.params.did )
 		} );
 
 		this.get( '/auth/:did', async req => {
