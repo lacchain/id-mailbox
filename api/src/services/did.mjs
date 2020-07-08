@@ -196,6 +196,7 @@ export default class DIDService {
 				"type": "function"
 			},
 			{
+				"constant": true,
 				"inputs": [
 					{
 						"internalType": "address",
