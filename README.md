@@ -153,3 +153,22 @@ Response Body:
 	}
 ]
  ```
+
+#7. Using DID DNS
+
+To resolve the status of a DID use the following URL:
+
+http://34.68.56.94:8080/dns/{did}
+
+Example: 
+
+GET  http://34.68.56.94:8080/dns/did:ethr:lacchain:0x01cd0acdfb36140d0dc6a4d917693ae641821891/status
+
+Response Body:
+````
+{
+    "entity": "BID Lab",
+    "expires": 5627255824,
+    "status": true
+}
+````

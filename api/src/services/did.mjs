@@ -38,7 +38,7 @@ export default class DIDService {
 		} );
 		this.web3.currentProvider.sendAsync = this.web3.currentProvider.send;
 
-		this.dnsRegistry = new ethers.Contract( "0x93a284C91768F3010D52cD37f84f22c5052be40b", [
+		this.dnsRegistry = new ethers.Contract( "0x1024d31846670b356f952F4c002E3758Ab9c4FFC", [
 			{
 				"anonymous": false,
 				"inputs": [
@@ -332,12 +332,17 @@ export default class DIDService {
 		return this.resolver.resolve( did );
 	}
 
-	async validate( did ) {
+	async dns( did ) {
 		const record = await this.dnsRegistry.getDID( did.replace( 'did:ethr:lacchain:', '' ) );
-		if( !record || record.expires <= 0 ) return 'unknown';
+		/*if( !record || record.expires <= 0 ) return 'unknown';
 		if( moment().isAfter( record.expires.toNumber() * 1000 ) ) return 'expired';
 
-		return record.status ? 'active' : 'revoked';
+		return record.status ? 'active' : 'revoked';*/
+		return {
+			entity: record.entity,
+			expires: record.expires.toNumber() * 1000,
+			status: record.status
+		}
 	}
 
 	async create() {

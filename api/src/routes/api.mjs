@@ -24,8 +24,8 @@ export default class APIRouter extends Router {
 			return didService.resolve( req.params.did )
 		} );
 
-		this.get( '/did/:did/status', req => {
-			return didService.validate( req.params.did )
+		this.get( '/dns/:did', req => {
+			return didService.dns( req.params.did )
 		} );
 
 		this.get( '/auth/:did', async req => {
