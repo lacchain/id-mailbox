@@ -1,3 +1,10 @@
+# Introduction
+
+LACChain Mailbox enables an email-like messaging for Verifiable Credentials (VC). Using a secure and controlled server to storage encrypted VC, LACChain Mailbox delivers a simple, secure, messaging experience for sending and receiving Verifiable Credentials with total privacy.
+
+LACChain Mailbox also provides an API solution to use the DID resolution functionality, sending and receiving encrypted VC from any application.
+
+
 # 1. Creating DID
 
 The DID method used in LACChain ID is "ethr", this method storage the public keys
@@ -154,7 +161,7 @@ Response Body:
 ]
  ```
 
-#7. Using DID DNS
+# 7. Using DID DNS
 
 To resolve the status of a DID use the following URL:
 
