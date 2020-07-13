@@ -5,10 +5,9 @@ LACChain Mailbox enables an email-like messaging for third-party issued Verifiab
 LACChain Mailbox also provides an API solution to use the DID resolution functionality, sending and receiving encrypted VC from any application.
 
 
-# 1. Creating DID
+# 1. Creating a DID
 
-The DID method used in LACChain ID is "ethr", this method storage the public keys
-and attributes of DID into a Smart Contract which is called a DIDRegistry.
+The DID method used in LACChain Mailbox is "ethr", this method stores the public keys and attributes of the DID in a Smart Contract which is called a DIDRegistry. The following URL describes the structure of the new DID and steps to generate a new DID into a Smart Contract which is called a DIDRegistry.
 In the following url is described the structure and steps to generate a new DID.
 
 https://github.com/uport-project/ethr-did-registry
@@ -17,13 +16,13 @@ The LACChain DID Registry has been deployed in the following addresses.
 
 | Network                                  | Address                                                |
 | -----------------------------------------| ------------------------------------------------------ |
-| MainNet (id: 648529)                     |      Pending to deploy...                              |
-| David19 (id: 648530)                     |      Pending to deploy...                              |
 | TestNet (id: 648539)                     |      0xd6A7c915066E17ba18024c799258C8A286fFBc00        |
+| David19 (id: 648530)                     |      Pending to deploy...                              |
+| MainNet (id: 648529)                     |      Pending to deploy...                              |
 
-# 2. Adding Encryption Public Key
+# 2. Adding Public Key Encryption
  
-In order to send and receive Verifiable Credentials using LACChain ID, is necessary to encrypt the VC before to send it.
+In order to send and receive Verifiable Credentials using LACChain Mailbox, it is required to encrypt the VC before sending it.
 The public key associated for encryption of the VC must be added to the DID through the 
 `` setAttribute(address identity, bytes32 name, bytes value, uint validity) `` function of DIDRegistry Smart Contract.
 
@@ -32,8 +31,7 @@ Example:
 ```
 DIDRegistry.setAttribute( 'did/pub/X25519/enc/base64', encryptionPublicKeyBase64 );
 ```  
-
-The algorithm proposed to do that is the [NACL](http://nacl.cr.yp.to), which is an asymmetric key algorithm. 
+The proposed encryption algorithm is [NACL](https://nacl.cr.yp.to/), an asymmetric key algorithm.
 
 # 3. Resolving a DID
 
@@ -73,7 +71,7 @@ Response:
 }
 ```` 
 
-Currently, LACChain ID can resolve the following methods and networks:
+Currently, LACChain Mailbox can resolve the following methods and networks:
 
 | Method                         | Network                                  |
 | -------------------------------| -----------------------------------------|
@@ -85,7 +83,7 @@ Currently, LACChain ID can resolve the following methods and networks:
 In the future we are going to support more DID methods and their corresponding networks.
  
 # 4. Authentication
- The authentication process consist in requesting a string challenge in order to sign further petitions:
+ The authentication process consists in requesting a string challenge in order to sign further petitions:
 
 ### Request a challenge.
  In this step, the server will send a random string that the client must use 
@@ -102,8 +100,8 @@ In the future we are going to support more DID methods and their corresponding n
 }
  ```
 
-# 5. Sending VC
- Before sending a new VC, it is necessary to encrypt with the private key generated for that purpose
+# 5. Sending a VC
+ Before sending a new VC, it is required to encrypt it with the private key generated for that purpose
  in the DID method. The encrypted VC must be encoded into an array of bytes. 
 To send a new VC, is necessary to sign the keccak-256 hash challenge and attach it in the signature header.
 
