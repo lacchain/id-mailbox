@@ -71,7 +71,7 @@ Response:
 }
 ```` 
 
-Currently, LACChain Mailbox can resolve the following methods and networks:
+Currently, the LACChain Mailbox can resolve the following methods and networks:
 
 | Method                         | Network                                  |
 | -------------------------------| -----------------------------------------|
@@ -103,7 +103,7 @@ In the future we are going to support more DID methods and their corresponding n
 # 5. Sending a VC
  Before sending a new VC, it is required to encrypt it with the private key generated for that purpose
  in the DID method. The encrypted VC must be encoded into an array of bytes. 
-To send a new VC, is necessary to sign the keccak-256 hash challenge and attach it in the signature header.
+To send a new VC, it is required to sign the keccak-256 hash challenge and attach it in the signature header.
 
 URL Path: /vc
 
@@ -137,7 +137,7 @@ Response Body:
 
 # 6. Gathering Verifiable Credentials
 
- To get the list of VC associated with some DID, is necessary to sign the keccak-256 hash challenge and attach it in the signature header.
+ To get the list of VC associated with a given DID, it is required to sign the keccak-256 hash challenge and attach it in the signature header.
  
 URL Path: /vc/{did}
 
