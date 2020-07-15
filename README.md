@@ -172,7 +172,7 @@ http://34.68.56.94:8080/dns/{did}
 
 Example: 
 
-GET  http://34.68.56.94:8080/dns/did:ethr:lacchain:0x01cd0acdfb36140d0dc6a4d917693ae641821891/status
+GET  http://34.68.56.94:8080/dns/did:ethr:lacchain:0x01cd0acdfb36140d0dc6a4d917693ae641821891
 
 Response Body:
 ````
