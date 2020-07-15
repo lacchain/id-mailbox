@@ -4,12 +4,38 @@ import ethr from 'ethr-did-resolver';
 import web from 'web-did-resolver';
 import EthrDID from '../utils/ethr-did';
 import ethers from "ethers";
+import axios from "axios";
 
 export default class DIDService {
 
 	constructor() {
 		const providerConfig = {
 			networks: [
+				{
+					name: "mainnet",
+					registry: "0xdca7ef03e98e0dc2b855be647c39abe984fcf21b",
+					rpcUrl: "https://mainnet.infura.io/v3/8d049ba5bac74463a8346b378acab3cf"
+				},
+				{
+					name: "ropsten",
+					registry: "0xdca7ef03e98e0dc2b855be647c39abe984fcf21b",
+					rpcUrl: "https://ropsten.infura.io/v3/8d049ba5bac74463a8346b378acab3cf"
+				},
+				{
+					name: "kovan",
+					registry: "0xdca7ef03e98e0dc2b855be647c39abe984fcf21b",
+					rpcUrl: "https://kovan.infura.io/v3/8d049ba5bac74463a8346b378acab3cf"
+				},
+				{
+					name: "rinkeby",
+					registry: "0xdca7ef03e98e0dc2b855be647c39abe984fcf21b",
+					rpcUrl: "https://rinkeby.infura.io/v3/8d049ba5bac74463a8346b378acab3cf"
+				},
+				{
+					name: "goerli",
+					registry: "0xdca7ef03e98e0dc2b855be647c39abe984fcf21b",
+					rpcUrl: "https://goerli.infura.io/v3/8d049ba5bac74463a8346b378acab3cf"
+				},
 				{
 					name: "rsk:testnet",
 					registry: "0xdca7ef03e98e0dc2b855be647c39abe984fcf21b",
@@ -28,7 +54,15 @@ export default class DIDService {
 
 		this.resolver = new DIDResolver.Resolver( {
 			...ethrResolver,
-			...webResolver
+			...webResolver,
+			btcr: async( did, parsed ) => {
+				const didDoc = await axios.get( `http://localhost:8081/1.0/identifiers/${parsed.did}` );
+				return didDoc.data;
+			},
+			sov: async( did, parsed ) => {
+				const didDoc = await axios.get( `http://localhost:8082/1.0/identifiers/${parsed.did}` );
+				return didDoc.data;
+			}
 		} );
 		this.web3 = new Web3( "http://35.184.61.29:4545", {
 			network_id: 648539,

@@ -7,7 +7,7 @@ LACChain Mailbox also provides an API solution to use the DID resolution functio
 
 # 1. Creating a DID
 
-The DID method used in LACChain Mailbox is "ethr", this method stores the public keys and attributes of the DID in a Smart Contract which is called a DIDRegistry. The following URL describes the structure of the new DID and steps to generate a new DID into a Smart Contract which is called a DIDRegistry.
+The DID method used in LACChain Mailbox is "ethr", this method stores the public keys and attributes of the DID in a Smart Contract which is called a DIDRegistry. 
 In the following url is described the structure and steps to generate a new DID.
 
 https://github.com/uport-project/ethr-did-registry
@@ -24,7 +24,7 @@ The LACChain DID Registry has been deployed in the following addresses.
  
 In order to send and receive Verifiable Credentials using LACChain Mailbox, it is required to encrypt the VC before sending it.
 The public key associated for encryption of the VC must be added to the DID through the 
-`` setAttribute(address identity, bytes32 name, bytes value, uint validity) `` function of DIDRegistry Smart Contract.
+`` setAttribute(address identity, bytes32 name, bytes value, uint validity) `` function of the DIDRegistry Smart Contract.
 
 Example: 
 
@@ -71,14 +71,19 @@ Response:
 }
 ```` 
 
-Currently, the LACChain Mailbox can resolve the following methods and networks:
+Currently, the LACChain Mailbox can resolve the following methods, networks and subnets:
 
-| Method                         | Network                                  |
-| -------------------------------| -----------------------------------------|
-| ethr                           |     MainNet                              |
-| ethr                           |     David19                              |
-| ethr                           |     TestNet                              |
-| web                            |      *                                   |
+| Method                         |        Network              | Subnetwork |
+| -------------------------------| ----------------------------|------------|
+| ethr                           |     LACChain                |  TestNet   |
+| ethr                           |     Ethereum                |  MainNet   |
+| ethr                           |     Ethereum                |  Ropsten   |
+| ethr                           |     Ethereum                |  Kovan     |
+| ethr                           |     Ethereum                |  Rinkeby   |
+| ethr                           |     Ethereum                |  Goerli    |
+| web                            |      *                      |     *      |
+| btcr                           |      *                      |     *      |
+| sov                            |      *                      |     *      |
 
 In the future we are going to support more DID methods and their corresponding networks.
  
