@@ -1,6 +1,6 @@
 # Introduction
 
-LACChain Mailbox enables an email-like messaging for third-party issued Verifiable Credentials (VC). Using a secure and controlled server to storage encrypted VC, LACChain Mailbox delivers a simple, secure, messaging experience for sending and receiving Verifiable Credentials with total privacy.
+LACChain Mailbox enables an email-like messaging for third-party issued Verifiable Credentials (VC). Using a secure and controlled server to store encrypted VC, LACChain Mailbox delivers a simple, secure, messaging experience for sending and receiving Verifiable Credentials with total privacy.
 
 LACChain Mailbox also provides an API solution to use the DID resolution functionality, sending and receiving encrypted VC from any application.
 
@@ -106,8 +106,7 @@ In the future we are going to support more DID methods and their corresponding n
  ```
 
 # 5. Sending a VC
- Before sending a new VC, it is required to encrypt it with the private key generated for that purpose
- in the DID method. The encrypted VC must be encoded into an array of bytes. 
+ Before sending a new VC, it is required to encrypt it with the private key generated for that purpose with the DID method. The encrypted VC must be encoded into an array of bytes. 
 To send a new VC, it is required to sign the keccak-256 hash challenge and attach it in the signature header.
 
 URL Path: /vc
