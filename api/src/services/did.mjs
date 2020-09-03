@@ -62,6 +62,14 @@ export default class DIDService {
 			sov: async( did, parsed ) => {
 				const didDoc = await axios.get( `http://localhost:8082/1.0/identifiers/${parsed.did}` );
 				return didDoc.data;
+			},
+			nacl: async( did, parsed ) => {
+				const didDoc = await axios.get( `http://localhost:8083/1.0/identifiers/${parsed.did}` );
+				return didDoc.data;
+			},
+			elem: async( did, parsed ) => {
+				const didDoc = await axios.get( `http://localhost:8084/api/v1/sidetree/${parsed.did}` );
+				return didDoc.data;
 			}
 		} );
 		this.web3 = new Web3( "http://35.184.61.29:4545", {
