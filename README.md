@@ -1,6 +1,6 @@
 # Introduction
 
-LACChain Mailbox enables an email-like messaging for third-party issued Verifiable Credentials (VC). Using a secure and controlled server to store encrypted VC, LACChain Mailbox delivers a simple, secure, messaging experience for sending and receiving Verifiable Credentials with total privacy.
+LACChain Mailbox enables an email-like messaging for third-party issued Verifiable Credentials (VC). Using a secure and controlled server to store encrypted VCs, LACChain Mailbox delivers a simple, secure, messaging experience for sending and receiving Verifiable Credentials with total privacy.
 
 LACChain Mailbox also provides an API solution to use the DID resolution functionality, sending and receiving encrypted VC from any application.
 
@@ -8,7 +8,7 @@ LACChain Mailbox also provides an API solution to use the DID resolution functio
 # 1. Creating a DID
 
 The DID method used in LACChain Mailbox is "ethr", this method stores the public keys and attributes of the DID in a Smart Contract which is called a DIDRegistry. 
-In the following url is described the structure and steps to generate a new DID.
+The following url describes the structure and steps to generate a new DID.
 
 https://github.com/uport-project/ethr-did-registry
 
