@@ -1,6 +1,6 @@
 import Web3 from 'web3';
 import DIDResolver from 'did-resolver';
-import ethr from 'ethr-did-resolver';
+import ethr from '../utils/eth-did-resolver.mjs';
 import web from 'web-did-resolver';
 import EthrDID from '../utils/ethr-did';
 import ethers from "ethers";

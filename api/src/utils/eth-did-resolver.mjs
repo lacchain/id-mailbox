@@ -94,7 +94,7 @@ function wrapDidDocument (did, owner, history) {
 						case 'pub':
 							delegateCount++
 							const pk = {
-								id: `${did}#delegate-${delegateCount}`,
+								id: `${event.hash}#delegate-${delegateCount}`,
 								type: `${algo}${type}`,
 								owner: did
 							}
@@ -271,10 +271,12 @@ function getResolver (conf = {}) {
 				fromBlock: previousChange,
 				toBlock: previousChange
 			})
-			const events = logDecoder(logs)
 			previousChange = undefined
-			for (const event of events) {
-				history.unshift(event)
+			for (const log of logs) {
+				const events = logDecoder([log]);
+				if( events.length <= 0 ) continue;
+				const event = events[0];
+				history.unshift({...event, hash: log.transactionHash })
 				if (event.previousChange.lt(blockNumber)) {
 					previousChange = event.previousChange
 				}
@@ -297,7 +299,7 @@ function getResolver (conf = {}) {
 	return { ethr: resolve }
 }
 
-module.exports = {
+export default {
 	REGISTRY,
 	bytes32toString,
 	stringToBytes32,
