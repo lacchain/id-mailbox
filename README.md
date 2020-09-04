@@ -84,6 +84,8 @@ Currently, the LACChain Mailbox can resolve the following methods, networks and 
 | web                            |      *                      |     *      |
 | btcr                           |      *                      |     *      |
 | sov                            |      *                      |     *      |
+| elem                           |      *                      |     *      |
+| nacl                           |      *                      |     *      |
 
 In the future we are going to support more DID methods and their corresponding networks.
  
