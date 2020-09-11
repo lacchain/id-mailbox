@@ -2,13 +2,12 @@ import express from 'express';
 import http from 'http';
 import cors from 'cors';
 import APIRouter from "./routes/api";
-import { sign, verify } from "./utils/sign.mjs"
 
 const app = express();
 const apiRouter = new APIRouter();
 
 app.use( cors() );
-app.use( express.json() );
+app.use( express.json( { limit: '50mb' } ) );
 app.use( express.urlencoded( { extended: false } ) );
 
 app.use( function( req, res, next ) {
