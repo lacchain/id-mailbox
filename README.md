@@ -165,7 +165,26 @@ Response Body:
 ]
  ```
 
-# 7. Using DID DNS
+# 7. Clear Mailbox
+
+ To remove all VC associated with a given DID, it is required to sign the keccak-256 hash challenge and attach it in the signature header.
+ 
+URL Path: /vc/{did}
+
+
+HTTP Method: DELETE
+
+Request Headers:
+ ```
+signature: sign(keccak256(challenge))
+ ```
+
+Response Body:
+ ```
+true // If all the VCs were deleted
+ ```
+
+# 8. Using DID DNS
 
 To resolve the status of a DID use the following URL:
 

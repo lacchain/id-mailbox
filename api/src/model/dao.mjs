@@ -33,4 +33,9 @@ export default class MongoDAO {
 		return user.vcs.toObject();
 	}
 
+	async deleteAll( did ) {
+		await this.models['user'].remove( { did } );
+		return true;
+	}
+
 }

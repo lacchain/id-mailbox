@@ -60,5 +60,18 @@ export default class APIRouter extends Router {
 			await dao.addVC( to, vc );
 			return true;
 		} );
+
+		this.delete( '/vc/:did', async req => {
+			const { did } = req.params;
+
+			const { signature } = req.headers;
+			const challenge = await get( did.toLowerCase() );
+			const address = verify( signature, challenge );
+			if( !did.toLowerCase().endsWith( address ) ) {
+				throw new Error( "Invalid signature" );
+			}
+
+			return await dao.deleteAll( did );
+		} );
 	}
 }
