@@ -16,9 +16,9 @@ The LACChain DID Registry has been deployed in the following addresses.
 
 | Network                                  | Address                                                |
 | -----------------------------------------| ------------------------------------------------------ |
-| TestNet (id: 648539)                     |      0xd6A7c915066E17ba18024c799258C8A286fFBc00        |
+| Pro TestNet (id: 648529)                 |      0x488C83c4D1dDCF8f3696273eCcf0Ff4Cf54Bf277        |
+| MultiLedgers (id: 648539)                |      0xd6A7c915066E17ba18024c799258C8A286fFBc00        |
 | David19 (id: 648530)                     |      Pending to deploy...                              |
-| MainNet (id: 648529)                     |      Pending to deploy...                              |
 
 # 2. Adding Public Key Encryption
  

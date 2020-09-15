@@ -43,8 +43,8 @@ export default class DIDService {
 				},
 				{
 					name: "lacchain",
-					registry: "0xd6A7c915066E17ba18024c799258C8A286fFBc00",
-					rpcUrl: "http://35.184.61.29:4545"
+					registry: "0x488C83c4D1dDCF8f3696273eCcf0Ff4Cf54Bf277",
+					rpcUrl: "https://writer.lacchain.net"
 				}
 			]
 		}
@@ -72,7 +72,7 @@ export default class DIDService {
 				return didDoc.data;
 			}
 		} );
-		this.web3 = new Web3( "http://35.184.61.29:4545", {
+		this.web3 = new Web3( "https://writer.lacchain.net", {
 			network_id: 648539,
 			gas: 0,
 			gasPrice: 0
