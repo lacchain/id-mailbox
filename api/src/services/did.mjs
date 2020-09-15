@@ -73,13 +73,13 @@ export default class DIDService {
 			}
 		} );
 		this.web3 = new Web3( "https://writer.lacchain.net", {
-			network_id: 648539,
+			network_id: 648529,
 			gas: 0,
 			gasPrice: 0
 		} );
 		this.web3.currentProvider.sendAsync = this.web3.currentProvider.send;
 
-		this.dnsRegistry = new ethers.Contract( "0x1024d31846670b356f952F4c002E3758Ab9c4FFC", [
+		this.dnsRegistry = new ethers.Contract( "0x87570d1Be0174a214465E27D70647a564CaB595c", [
 			{
 				"anonymous": false,
 				"inputs": [
@@ -392,7 +392,7 @@ export default class DIDService {
 		const ethrDid = new EthrDID( {
 			...keyPair,
 			provider: this.web3.currentProvider,
-			registry: "0xd6A7c915066E17ba18024c799258C8A286fFBc00",
+			registry: "0x488C83c4D1dDCF8f3696273eCcf0Ff4Cf54Bf277",
 			web3: this.web3
 		} );
 		await ethrDid.setAttribute( 'did/pub/X25519/enc/base64', new Buffer( keyPair.publicKey ).toString( 'base64' ) );
@@ -405,7 +405,7 @@ export default class DIDService {
 			address,
 			privateKey,
 			provider: this.web3.currentProvider,
-			registry: "0xd6A7c915066E17ba18024c799258C8A286fFBc00",
+			registry: "0x488C83c4D1dDCF8f3696273eCcf0Ff4Cf54Bf277",
 			web3: this.web3
 		} );
 		//const encryptionKey = generateKeyPair();
