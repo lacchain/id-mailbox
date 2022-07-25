@@ -1,3 +1,5 @@
+**IMPORTANT NOTE:** *The ongoing development of this project has migrated to [this repository](https://github.com/lacchain/mailbox).*
+
 # Introduction
 
 LACChain Mailbox enables an email-like messaging for third-party issued Verifiable Credentials (VC). Using a secure and controlled server to store encrypted VCs, LACChain Mailbox delivers a simple, secure, messaging experience for sending and receiving Verifiable Credentials with total privacy.
